@@ -1,0 +1,67 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#0000ff"
+        android:orientation="horizontal"
+        android:padding="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_world"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+        <LinearLayout
+            android:id="@+id/tabbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#aaaaaa"
+            android:padding="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tabbar"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <org.kotemaru.android.slidelayout.SlideLayout
+            app:innerScrollView="@+id/listView"
+            app:slideTarget="@id/mainLayout"
+            app:maxSlideSize="50dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#f0f0f0"/>
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+        </org.kotemaru.android.slidelayout.SlideLayout>
+    </LinearLayout>
+</FrameLayout>
